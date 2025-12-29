@@ -9,6 +9,7 @@ const {
 } = require("discord.js");
 const fs = require("fs");
 require('dotenv').config(); // <- Bu satır .env'i okur
+console.log("TOKEN:", process.env.TOKEN);
 const express = require("express"); // <- HTTP server için ekledik
 
 // ----------------- AYARLAR -----------------
