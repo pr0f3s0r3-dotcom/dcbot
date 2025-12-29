@@ -8,9 +8,10 @@ const {
   Partials
 } = require("discord.js");
 const fs = require("fs");
+require('dotenv').config(); // <- Bu satır .env'i okur
 
 // ----------------- AYARLAR -----------------
-const TOKEN = "process.env.TOKEN";
+const TOKEN = process.env.TOKEN; // <- Token buradan geliyor
 const PROFILE_FILE = "./profiles.json";
 const DELETED_FILE = "./deletedMessages.json";
 const MAIN_GUILD_ID = "1403132624473428029";
@@ -183,7 +184,7 @@ client.on("interactionCreate", async interaction => {
   }
 });
 
-// ----------------- MESSAGE DELETE (TEK) -----------------
+// ----------------- MESSAGE DELETE -----------------
 client.on("messageDelete", async message => {
   if (!message.guild) return;
 
@@ -213,7 +214,6 @@ client.on("messageDelete", async message => {
   if (targetChannel) targetChannel.send({ embeds: [embed] });
 });
 
-// ----------------- MESSAGE DELETE BULK -----------------
 client.on("messageDeleteBulk", async messages => {
   const guild = messages.first()?.guild;
   if (!guild) return;
@@ -236,6 +236,5 @@ client.on("messageDeleteBulk", async messages => {
   if (targetChannel) targetChannel.send({ embeds: [embed] });
 });
 
-client.login(process.env.TOKEN);
-
-
+// ----------------- LOGIN -----------------
+client.login(TOKEN);
