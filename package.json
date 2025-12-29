@@ -15,4 +15,7 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs"
+"scripts": {
+  "start": "node app.js"
+}
 }
