@@ -236,4 +236,6 @@ client.on("messageDeleteBulk", async messages => {
   if (targetChannel) targetChannel.send({ embeds: [embed] });
 });
 
-client.login(TOKEN);
+client.login(process.env.TOKEN);
+
+
